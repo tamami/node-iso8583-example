@@ -3,7 +3,7 @@
 Jafar Shadiq reekoheek [at] gmail [dot] com
 http://github.com/reekoheek/node-iso8583
 
-Igor Askarov
+Igor Askarov juks@juks.ru http://askarov.com
 https://github.com/juks/node-iso8583
 
 # DESCRIPTION
