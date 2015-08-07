@@ -8,7 +8,7 @@ https://github.com/juks/node-iso8583
 
 # DESCRIPTION
 
-node-iso8583 is a Node.js addon for parsing and packing ISO 8583.
+node-iso8583 is a Node.js addon for parsing and packing ISO 8583. Improved and adopted for use with SmartVista.
 ```
 
 # REQUIREMENTS
