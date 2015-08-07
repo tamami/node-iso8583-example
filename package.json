@@ -2,20 +2,17 @@
   "name": "iso8583",
   "version": "0.0.1",
   "author": "Jafar Shadiq <reekoheek@gmail.com> (http://xinix.co.id)",
-  "description": "An node.js JavaScript implementation of ISO 8583 parser.",
-  "homepage": "https://github.com/reekoheek/node-iso8583",
+  "description": "An improved version of node.js JavaScript implementation of ISO 8583 parser based on http://github.com/reekoheek/node-iso8583",
+  "homepage": "https://github.com/juks/node-iso8583",
   "repository": {
     "type": "git",
-    "url": "git://github.com/reekoheek/node-iso8583.git"
+    "url": "git@github.com:juks/node-iso8583.git"
   },
   "bugs": {
-    "url": "https://github.com/reekoheek/node-iso8583/issues"
+    "url": "https://github.com/juks/node-iso8583"
   },
   "main": "./index",
   "engines": {
     "node": "*"
-  },
-  "dependencies": {
-    "bignum": "^0.9.0"
   }
 }
