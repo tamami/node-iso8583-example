@@ -16,7 +16,7 @@ var msg = '0210723A00010A8084001859360014100109999901100000001000000010070215330
 console.log(msg);
 var iso = new ISO(packager);
 var parsed = iso.unpack(msg);
-
+console.log(parsed);
 var iso = new ISO(packager);
 var msg = iso.pack(parsed);
 console.log(msg);
