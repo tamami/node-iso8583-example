@@ -1,0 +1,19 @@
+\chapter{PENDAHULUAN}
+
+Sistem Pembayaran Online Pajak Daerah (SPOPD) dalam komunikasinya dengan tempat pembayaran menggunakan dua metode yaitu :
+
+\begin{enumerate}[1.]
+  \item Dengan mengikuti standar spesifikasi ISO-8583, yang berlaku hanya untuk pembayaran tunggal untuk tiap Nomor Objek Pajak (NOP).
+  
+  \item Dengan format data JSON (\textit{JavaScript Object Notation}) yang mampu melakukan transaksi untuk beberapa Nomor Objek Pajak (NOP) sekaligus.
+\end{enumerate}
+
+\begin{enumerate}[A.]
+
+\item \textbf{Spesifikasi ISO-8583}
+
+Pada standar spesifikasi ISO-8583, SPOPD menggunakan beberapa jenis paket data untuk mengakomodasi jenis-jenis transaksi yang dilayani. Adapun jenis transaksi yang dilayani oleh SPOPD adalah pembayaran Surat Pemberitahuan Pajak Terhutang (SPPT) Pajak Bumi dan Bangunan Perdesaan dan Perkotaan.
+
+\item \textbf{Format Data JSON}
+
+\end{enumerate}
