@@ -1,5 +1,7 @@
 \documentclass[pdftex, 12pt, oneside, a4paper]{book}
 
+\usepackage{makeidx}
+\usepackage{tabu}
 \usepackage{graphicx}
 \usepackage[bottom]{footmisc}
 \usepackage[english]{babel}
@@ -10,6 +12,8 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
 
 \newenvironment{italicquotes}
   {\begin{quote}\itshape}
@@ -40,8 +44,21 @@
 
 \begin{document}
 
-\include{./01.title}
+\input{./01.title}
+
+\frontmatter
+
 \include{./02.pengesahan}
+
+\tableofcontents
+\listoffigures
+
+\mainmatter	
 \include{./03.pendahuluan}
+\include{./04.paket-data}
+\include{./05.jenis-paket-data}
+
+\backmatter
+\printindex
 
 \end{document}

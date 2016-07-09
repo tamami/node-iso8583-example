@@ -2,13 +2,15 @@
 
 Sistem Pembayaran Online Pajak Daerah (SPOPD) dalam komunikasinya dengan tempat pembayaran menggunakan dua metode yaitu :
 
-\begin{enumerate}[1.]
+\begin{itemize}
   \item Dengan mengikuti standar spesifikasi ISO-8583, yang berlaku hanya untuk pembayaran tunggal untuk tiap Nomor Objek Pajak (NOP).
   
   \item Dengan format data JSON (\textit{JavaScript Object Notation}) yang mampu melakukan transaksi untuk beberapa Nomor Objek Pajak (NOP) sekaligus.
-\end{enumerate}
+\end{itemize}
 
-\begin{enumerate}[A.]
+Adapun detail untuk tiap jenis komunikasi adalah sebagai berikut :
+
+\begin{enumerate}[1.]
 
 \item \textbf{Spesifikasi ISO-8583}
 
@@ -22,13 +24,30 @@ Klasifikasi jenis paket data yang digunakan dalam SPOPD adalah :
   \item \textit{Network Management}
 \end{itemize}
 
-Detail jenis-jenis paket data yang digunakan dalam SPOPD dapat dilihat pada tabel berikut. 
+Detail jenis-jenis paket data yang digunakan dalam SPOPD dapat dilihat pada tabel \ref{tab:jenis-paket-data}. 
 
-\begin{tabular}{| l | l | c | c | c |}
+\begin{table}[H]
+\centering
+\begin{tabular}{| l | p{4cm} | p{2cm} | c | c |}
   \hline
-  KLASIFIKASI & JENIS PAKET DATA & KODE PENGENAL & \textit{INCOMING} & \textit{OUTGOING} \\
+  \rowcolor{lightgray} KLASIFIKASI & JENIS PAKET DATA & KODE PENGENAL & \textit{INCOMING} & \textit{OUTGOING} \\
   \hline  
+  \multirow{2}{4em}{Financial Transaction} & Financial Transaction Request & 0200 & Yes & \\
+  \cline{2-5}
+  & Financial Transaction Request Response & 0210 & & Yes \\
+  \hline
+  \multirow{2}{4em}{Reversal} & Acquirer Reversal Advice/Repeat & 0400/0401 & Yes & \\
+  \cline{2-5}
+  & Reversal Advice Response & 0410/0411 & & Yes \\
+  \hline
+  \multirow{2}{4em}{Network Management} & Network Management Request & 0800 & Yes & Yes \\
+  \cline{2-5}
+  & Network Management Request Response & 0810 & Yes & Yes \\
+  \hline
 \end{tabular}
+  \caption{Table Jenis Paket Data}
+  \label{tab:jenis-paket-data}
+\end{table}
 
 \item \textbf{Format Data JSON}
 
