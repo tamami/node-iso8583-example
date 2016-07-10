@@ -73,12 +73,77 @@
     \hline
     & Primary Bit Map & M & M & & B64 \\
     \hline
+    P-1 & Secondary Bit Map & M & M & & B64 \\
+    \hline
+    P-2 & Primary Account Number & M & M & LLVAR & N..16 \\
+    \hline
+    P-3 & Processing Code & M & M & & N6 \\
+    \hline
+    P-4 & Transaction Amount & M & M & & N12 \\
+    \hline
+    P-7 & Transmission Date and Time & M & M & MMDDhhmmss & N10 \\
+    \hline
+    P-11 & System Trace Audit Number & M & M & & N6 \\
+    \hline
+    P-12 & Local Transaction Time & M & M & hhmmss & N6 \\
+    \hline
+    P-13 & Local Transaction Date & M & M & MMDD & N4 \\
+    \hline
+    P-18 & Merchant Types (Kode Produksi) & M & M & & N4 \\
+    \hline
+    P-32 & Acquiring Institution Identification Code & M & M & LLVAR & N4 \\
+    \hline
+    P-37 & Retrieval Reference Number & M & M & & AN12 \\
+    \hline
+    P-39 & Response Code & & M & & N2 \\
+    \hline
+    P-41 & Card Acceptor Terminal Identification & M & M & & AN16 \\
+    \hline
+    P-48 & Additional Data & M & M & LLLVAR & ANS..210 \\
+    \hline
+    P-49 & Transaction Currency Code & M & M & & N3 \\
+    \hline
+    P-63 & Reserved Private & M & M & LLLVAR & N..2 \\
+    \hline
+    S-90 & Original Data Element & M & M & & N73 \\
+    \hline
     \end{tabular}
     \caption{Tabel Referensi Untuk Paket Data \textit{Reversal}}
     \label{tab:reversal}
   \end{table}
   
   \item \textbf{\textit{Network Management Message}}
+  
+  Gambaran mengenai data elemen yang disertakan dalam paket data SPOPD untuk jenis paket data \textit{Network Management} seperti pada tabel \ref{tab:net-manage}
+  
+  \begin{table}[H]
+    \scriptsize
+    \centering
+    \begin{tabular}{|p{3em}|p{10em}|p{3em}|p{3em}|l|l|}
+      \hline
+      \multicolumn{2}{|p{13em}|}{\textbf{Data Element}} & \multicolumn{2}{|p{6em}|}{\textbf{Klasifikasi Paket Data}} & \multirow{2}{*}{\textbf{Format}} & \multirow{2}{*}{\textbf{Attr}} \\
+      \cline{1-4}
+      \textbf{Bit Map} & \textbf{Deskripsi} & \textbf{Req} & \textbf{Res} & & \\
+      \hline
+      \hline
+      & Message Type & 0800 & 0810 & & \\
+      \hline
+      & Primary Bit Map & M & M & & B64 \\
+      \hline
+      P-1 & Secondary Bit Map & M & M & & B64 \\
+      \hline
+      P-7 & Transmission Date and Time & M & M & MMDDhhmmss & N10 \\
+      \hline
+      P-11 & System Trace Audit Number & M & M & & N6 \\
+      \hline
+      P-39 & Response Code & & M & & N2 \\
+      \hline
+      S-70 & Network Management Information Code & M & M & & N3 \\
+      \hline
+    \end{tabular}
+    \caption{Tabel Referensi Untuk Paket Data \textit{Network Management}}
+    \label{tab:net-manage}
+  \end{table}
 
 \end{enumerate}
 
@@ -88,7 +153,23 @@ Sedangkan untuk paket data yang dikirimkan oleh Sistem Bank/Tempat Pembayaran ke
 
   \item \textbf{\textit{Paket Data Request}}
   
+  Gambaran bagaimana sebuah sistem Bank / Tempat Pembayaran menerima transaksi dan kemudian mengirimkannya ke SPOPD untuk memperoleh pengesahan dapat dilihat pada gambar \ref{fig:data-request}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/dia-data-request}
+    \caption{Skema Data Request PBB-P2}
+    \label{fig:data-request}
+  \end{figure}
+  
+  \begin{enumerate}[1.]
+    \item Sistem Bank mengirimkan paket data 0200 ke SPOPD untuk mendapatkan pengesahan.
+    \item SPOPD melakukan pengesahan terhadap transaksi yang diterima, dan mengirimkan paket data 0210 ke sistem Bank.
+  \end{enumerate}
+  
   \item \textbf{\textit{Paket Data Reversal}}
+  
+  
   
   \item \textbf{\textit{Timeout}}
   
