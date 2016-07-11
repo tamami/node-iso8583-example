@@ -169,7 +169,21 @@ Sedangkan untuk paket data yang dikirimkan oleh Sistem Bank/Tempat Pembayaran ke
   
   \item \textbf{\textit{Paket Data Reversal}}
   
+  Bilamana perangkat ATM, Terminal Teller, atau \textit{channel} lainnya yang dihubungkan ke jaringan Sistem Bank, gagal menyelesaikan sebuah transaksi yang telah disahkan oleh SPOPD, maka sebuah paket reversal harus dikirimkan ke SPOPD. Diagram pada gambar \ref{fig:proses-reversal} memberikan penjelasan bagaimana kejadian tersebut berlangsung :
   
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/dia-reversal}
+    \caption{Skema Data Reversal PBB-P2}
+    \label{fig:proses-reversal}
+  \end{figure}
+  
+  \begin{enumerate}[1.]
+    \item Sistem Bank mengirimkan paket 0200 ke SPOPD untuk mendapatkan pengesahan.
+    \item SPOPD melakukan pengesahan terhadap transaksi yang diterima, dan mengirimkan paket data 0210 ke sistem Bank.
+    \item Sistem Bank tidak dapat menindak lanjuti transaksi yang telah disahkan tersebut. Sistem Bank akan mencatat pada basisdatanya sebuah paket data 0400 yang kemudian akan dikirim ke SPOPD pada saat proses Store-and-Forward dilakukan.
+    \item SPOPD akan mengirimkan paket data 0410.
+  \end{enumerate}
   
   \item \textbf{\textit{Timeout}}
   
