@@ -7,12 +7,14 @@ var packager = new iso8583("spopd");
 
 switchServer.on("connection", function(client) {
   client.on("data", function(data) {
+    /*
     if(verifying(data)) {
       console.log("berhasil");
       console.log("data yang dikirimkan: ");
-      var intiData = data.slice(9);
-      console.log(packager.unpack(intiData));
-    }
+      //var intiData = data.slice(9);
+      //console.log(packager.unpack(intiData));
+    }*/
+    console.log(packager.unpack(data));
   });
 });
 
