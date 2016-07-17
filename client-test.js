@@ -55,3 +55,15 @@ data = {
 
 var msg = packager.pack(data);
 console.log("Isi msg: " + msg);
+
+var client = new net.Socket();
+client.connect(8085, "localhost", function() {
+  console.log("Terkoneksi");
+
+  // kirim ke server
+  client.write(msg);
+});
+
+client.on("data", function(data) {
+  console.log("Client menerima data: " + data.toString());
+});
