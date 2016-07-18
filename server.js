@@ -14,6 +14,7 @@ switchServer.on("connection", function(client) {
       //var intiData = data.slice(9);
       //console.log(packager.unpack(intiData));
     }*/
+    console.log("data hex: " + data.toString("hex"));
     console.log(packager.unpack(data));
   });
 });

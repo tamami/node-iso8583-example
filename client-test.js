@@ -7,9 +7,9 @@ var now = new Date();
 var startOfMessage = "ISO";
 var header = "005000017";
 var mTI = 200;
-var p1_pBMFin = new Buffer("01110010001110000100000000000001" +
-    "00001000100000011000000000000010", "binary");
-p1_pBMFin = "7238400108810200";
+//var p1_pBMFin = new Buffer("01110010001110000100000000000001" +
+//    "00001000100000011000000000000010", "binary");
+var pBMFin = "7238400108810200"; // 64 bit
 var p2_pan = "2028000001"; // LLVAR -> N16
 var p3_procCode = { // n6
   inquiry: 360000,
@@ -36,7 +36,7 @@ var data;
 
 data = {
   '0': mTI,
-  '1': p1_pBMFin,
+  '1': pBMFin,
   '2': p2_pan,
   '3': p3_procCode.inquiry,
   '4': p4_trxAmt,
@@ -55,14 +55,15 @@ data = {
 
 var msg = packager.pack(data);
 console.log("Isi msg: " + msg);
-
+var buffMsg = new Buffer(msg, "hex");
+console.log("Isi msg dalam biner: " + buffMsg);
 var client = new net.Socket();
 client.connect(8085, "localhost", function() {
   console.log("Terkoneksi");
 
   console.log("Data yang dikirim: " + msg);
   // kirim ke server
-  client.write(msg);
+  client.write(buffMsg);
 });
 
 client.on("data", function(data) {
