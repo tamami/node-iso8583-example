@@ -7,12 +7,18 @@ var msg = new Buffer('303231303234058022c082003032303030303030303030313030303838
 
 var pbm = new Buffer("7238400108810200", "hex");
 var pbm2 = new Buffer("3234058022c08200", "hex");
+var pbmTrial = "7200000000000000";
 var p2_pan = "2028000001"; // LLVAR -> N16
+var p3_procCode = { // n6
+  inquiry: 360000,
+  byr: 560000
+};
 
 var parsed = {
   "0": 200,
-  //"1": pbm.toString("hex"),
-  "2": p2_pan
+  "1": pbmTrial,
+  "2": p2_pan,
+  "3": p3_procCode.inquiry
 };
 
 
@@ -28,7 +34,7 @@ console.log('Unpacked:');
 console.log(result);
 
 
-var data = new Buffer("saya", "ascii");
-console.log("Isinya : " + data.toString());
-console.log("Dalam hex: " + data.toString("hex"));
+//var data = new Buffer("saya", "ascii");
+//console.log("Isinya : " + data.toString());
+//console.log("Dalam hex: " + data.toString("hex"));
 //console.log("Dalam biner: " + data.toString("latin-1"));
