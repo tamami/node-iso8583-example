@@ -7,11 +7,8 @@ var msg = new Buffer('303231303234058022c082003032303030303030303030313030303838
 
 var pbm = new Buffer("7238400108810200", "hex");
 var pbm2 = new Buffer("3234058022c08200", "hex");
-<<<<<<< HEAD
-var pbmTrial = "0";
-=======
+
 var pbmTrial = "0000000000000000";
->>>>>>> 14a3705c71ad71a12ad4e5e88711860e9f705e12
 var p2_pan = "2028000001"; // LLVAR -> N16
 var p3_procCode = { // n6
   inquiry: 360000,
