@@ -2,6 +2,7 @@ var net = require("net");
 var assert = require("assert");
 var iso8583 = require("./lib/iso8583.js");
 
+var prosesInquiry = require("util/proses-inquiry.js")
 var switchServer = net.createServer();
 var packager = new iso8583("spopd");
 
@@ -14,30 +15,32 @@ switchServer.on("connection", function(client) {
       //var intiData = data.slice(9);
       //console.log(packager.unpack(intiData));
     }*/
-    console.log(packager.unpack(new Buffer(data).toString()));
+    var dataClient = packager.unpack(new Buffer(data).toString());
+    var resultVerifying = verifying(dataClient);
+
+    switch(resultVerifying) {
+      case 1:
+        console.log("MTI Not Valid");
+        break;
+      case 2:
+        console.log("PAN not valid");
+        break;
+    }
+
+    switch(dataClient["0"]) {
+      case 200:
+        console.log("Inquiry data");
+        prosesInquiry(dataClient);
+        break;
+    }
   });
 });
 
 function verifying(data) {
-  var som = data.toString().substr(0,3);
-  var header = data.toString().substr(3,9);
 
-
-  // cek isi Start of Message
-  // ga perlu
-  /*
-  if(som !== "ISO") {
-    console.log("Kesalahan kode Start of Message");
-    return false;
-  }
-
-  // cek Header
-  if(header !== "005000017") {
-    throw "Kesalahan Header";
-    return false;
-  }
-  */
-  return true;
+  if(data["0"] != 200 || data["0"] != 400 || data["0"] != 410 ||
+      data["0"] != 800) return 1;
+  return 0;
 }
 
 switchServer.listen(8085);
