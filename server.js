@@ -14,8 +14,7 @@ switchServer.on("connection", function(client) {
       //var intiData = data.slice(9);
       //console.log(packager.unpack(intiData));
     }*/
-    console.log("data hex: " + data.toString("hex"));
-    console.log(packager.unpack(data));
+    console.log(packager.unpack(new Buffer(data).toString()));
   });
 });
 
@@ -23,8 +22,6 @@ function verifying(data) {
   var som = data.toString().substr(0,3);
   var header = data.toString().substr(3,9);
 
-  console.log(som);
-  console.log(header);
 
   // cek isi Start of Message
   // ga perlu
