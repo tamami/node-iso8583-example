@@ -7,18 +7,20 @@ var msg = new Buffer('303231303234058022c082003032303030303030303030313030303838
 
 var pbm = new Buffer("7238400108810200", "hex");
 var pbm2 = new Buffer("3234058022c08200", "hex");
-var pbmTrial = "7200000000000000";
+var pbmTrial = "0000000000000000";
 var p2_pan = "2028000001"; // LLVAR -> N16
 var p3_procCode = { // n6
   inquiry: 360000,
   byr: 560000
 };
+var p4_trxAmt = 5000; // n12
 
 var parsed = {
   "0": 200,
   "1": pbmTrial,
   "2": p2_pan,
-  "3": p3_procCode.inquiry
+  "3": p3_procCode.inquiry,
+  "4": p4_trxAmt
 };
 
 
@@ -26,9 +28,7 @@ var parsed = {
 console.log('Packed back:');
 var msg = packager.pack(parsed);
 console.log(msg);
-console.log("Hasil Hex: " + msg);
 
-console.log("Isi buffer: " + msg.toString());
 var result = packager.unpack(msg);
 console.log('Unpacked:');
 console.log(result);
