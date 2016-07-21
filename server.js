@@ -1,20 +1,15 @@
 var net = require("net");
 var assert = require("assert");
 var iso8583 = require("./lib/iso8583.js");
+var util = require('util');
 
-var prosesInquiry = require("util/proses-inquiry.js")
+var isoResponses = require("./util/iso-responses.js")
 var switchServer = net.createServer();
 var packager = new iso8583("spopd");
 
 switchServer.on("connection", function(client) {
   client.on("data", function(data) {
-    /*
-    if(verifying(data)) {
-      console.log("berhasil");
-      console.log("data yang dikirimkan: ");
-      //var intiData = data.slice(9);
-      //console.log(packager.unpack(intiData));
-    }*/
+    console.log("Koneksi dari : " + client.remoteAddress);
     var dataClient = packager.unpack(new Buffer(data).toString());
     var resultVerifying = verifying(dataClient);
 
@@ -30,14 +25,14 @@ switchServer.on("connection", function(client) {
     switch(dataClient["0"]) {
       case 200:
         console.log("Inquiry data");
-        prosesInquiry(dataClient);
+        isoResponses(dataClient);
         break;
     }
   });
 });
 
 function verifying(data) {
-
+  console.log("verifikasi MTI: " + util.inspect(data["0"], {colors: true}));
   if(data["0"] != 200 || data["0"] != 400 || data["0"] != 410 ||
       data["0"] != 800) return 1;
   return 0;

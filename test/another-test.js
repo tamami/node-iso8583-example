@@ -53,6 +53,12 @@ var parsed = {
   "63": p63_private
 };
 
+var cobaHex = 254;
+console.log("Octal: " + cobaHex);
+console.log("Hex: " + parseInt(cobaHex).toString(16));
+console.log("Bin: " + parseInt(cobaHex).toString(2));
+
+
 
 
 console.log('Packed back:');
