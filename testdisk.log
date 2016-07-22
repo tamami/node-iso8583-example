@@ -1,0 +1,105 @@
+
+
+Wed Jul 20 20:34:19 2016
+Command line: TestDisk
+
+TestDisk 6.14, Data Recovery Utility, July 2013
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 3.19.0-33-generic (#38~14.04.1-Ubuntu SMP Fri Nov 6 18:17:28 UTC 2015) x86_64
+Compiler: GCC 4.8
+Compilation date: 2013-10-29T01:29:29
+ext2fs lib: 1.42.9, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none
+/dev/sda: LBA, HPA, LBA48, DCO support
+/dev/sda: size       1465149168 sectors
+/dev/sda: user_max   1465149168 sectors
+/dev/sda: native_max 1465149168 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 1 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 750 GB / 698 GiB - CHS 91201 255 63, sector size=512 - WDC WD7500BPVT-80HXZT3, S/N:WD-WX31A91N2820, FW:01.01A01
+Disk /dev/sdb - 15 GB / 14 GiB - CHS 14663 64 32, sector size=512 - SanDisk Ultra Fit, FW:1.00
+
+Partition table type (auto): Intel
+Disk /dev/sda - 750 GB / 698 GiB - WDC WD7500BPVT-80HXZT3
+Partition table type: Intel
+
+Analyse Disk /dev/sda - 750 GB / 698 GiB - CHS 91201 255 63
+Geometry from i386 MBR: head=255 sector=63
+NTFS at 12157/149/25
+NTFS at 34770/254/45
+Info: size boot_sector 435507193, partition 435507200
+NTFS at 61880/49/58
+Info: size boot_sector 471037945, partition 471037952
+Current partition structure:
+ 1 P Linux                    0  32 33 12157 149 24  195309568
+ 2 * HPFS - NTFS          12157 149 25 26746 195  9  234375168
+ 3 E extended LBA         26746 227 40 91200 242 50 1035454466
+ 5 L Linux                26746 227 42 32825 158 37   97654784
+   X extended             32825 190  7 34770 222 12   31248447
+ 6 L Linux Swap           32825 191  7 34770 222 12   31248384
+   X extended             34770 253 45 61880  17 25  435507263
+ 7 L HPFS - NTFS          34770 254 45 61880  17 25  435507200 [data]
+   X extended             61880  48 58 91200 242 50  471038015
+ 8 L HPFS - NTFS          61880  49 58 91200 242 50  471037952 [master]
+
+search_part()
+Disk /dev/sda - 750 GB / 698 GiB - CHS 91201 255 63
+
+recover_EXT2: s_block_group_nr=0/745, s_mnt_count=302/4294967295, s_blocks_per_group=32768, s_inodes_per_group=8192
+recover_EXT2: s_blocksize=4096
+recover_EXT2: s_blocks_count 24413696
+recover_EXT2: part_size 195309568
+     Linux                    0  32 33 12157 149 24  195309568
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 99 GB / 93 GiB
+NTFS at 12157/149/25
+filesystem size           234375168
+sectors_per_cluster       8
+mft_lcn                   786432
+mftmirr_lcn               2
+clusters_per_mft_record   -10
+clusters_per_index_record 1
+     HPFS - NTFS          12157 149 25 26746 195  9  234375168
+     NTFS, blocksize=4096, 120 GB / 111 GiB
+
+recover_EXT2: s_block_group_nr=0/372, s_mnt_count=303/4294967295, s_blocks_per_group=32768, s_inodes_per_group=8192
+recover_EXT2: s_blocksize=4096
+recover_EXT2: s_blocks_count 12206848
+recover_EXT2: part_size 97654784
+     Linux                26746 227 42 32825 158 37   97654784
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 49 GB / 46 GiB
+     Linux Swap           32825 191  7 34770 221 59   31248368
+     SWAP2 version 1, pagesize=4096, 15 GB / 14 GiB
+NTFS at 34770/222/13
+filesystem size           430080000
+sectors_per_cluster       8
+mft_lcn                   786432
+mftmirr_lcn               2
+clusters_per_mft_record   -10
+clusters_per_index_record 1
+     HPFS - NTFS          34770 222 13 61542  28 54  430080000 [data]
+     NTFS, blocksize=4096, 220 GB / 205 GiB
+NTFS at 61880/49/58
+filesystem size           471037945
+sectors_per_cluster       8
+mft_lcn                   12
+mftmirr_lcn               11
+clusters_per_mft_record   -10
+clusters_per_index_record 1
+     HPFS - NTFS          61880  49 58 91200 242 43  471037945 [master]
+     NTFS, blocksize=4096, 241 GB / 224 GiB
+Search for partition aborted
+
+Results
+     Linux                    0  32 33 12157 149 24  195309568
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 99 GB / 93 GiB
+     HPFS - NTFS          12157 149 25 26746 195  9  234375168
+     NTFS, blocksize=4096, 120 GB / 111 GiB
+     Linux                26746 227 42 32825 158 37   97654784
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 49 GB / 46 GiB
+     Linux Swap           32825 191  7 34770 222 12   31248384
+     SWAP2 version 1, pagesize=4096, 15 GB / 14 GiB
+     HPFS - NTFS          34770 222 13 61542  28 54  430080000 [data]
+     NTFS, blocksize=4096, 220 GB / 205 GiB
+     HPFS - NTFS          61880  49 58 91200 242 50  471037952 [master]
+     NTFS, blocksize=4096, 241 GB / 224 GiB
+SIGINT detected! TestDisk has been killed.

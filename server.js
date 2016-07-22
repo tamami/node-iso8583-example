@@ -9,9 +9,10 @@ var packager = new iso8583("spopd");
 
 switchServer.on("connection", function(client) {
   client.on("data", function(data) {
-    console.log("Koneksi dari : " + client.remoteAddress);
+    console.log("Koneksi dari : " + client.remoteAddress + " family: " + client.remoteFamily);
     var dataClient = packager.unpack(new Buffer(data).toString());
     var resultVerifying = verifying(dataClient);
+    console.log("resultVerifying: " + resultVerifying);
 
     switch(resultVerifying) {
       case 1:
@@ -32,10 +33,11 @@ switchServer.on("connection", function(client) {
 });
 
 function verifying(data) {
-  console.log("verifikasi MTI: " + util.inspect(data["0"], {colors: true}));
-  if(data["0"] != 200 || data["0"] != 400 || data["0"] != 410 ||
-      data["0"] != 800) return 1;
-  return 0;
+  var result;
+  if(data["0"] == 200 || data["0"] == 400 || data["0"] == 410 ||
+      data["0"] == 800) result = 0;
+  else return 1;
+  return result;
 }
 
 switchServer.listen(8085);
